@@ -1,0 +1,7 @@
+#!/bin/bash
+FREE_SPACE=$(df -h | grep 'yandex.disk' | awk '{print $4}' | sed -e 's/.$//')
+METER=$(df -h | grep 'yandex.disk' | awk '{print $4}' | sed -e 's/[0-9]\{1,3\}//'
+)
+[ "$METER" = "G" ] && FREE_SPACE=$(($FREE_SPACE*1000000))
+[ "$METER" = "M" ] && FREE_SPACE=$(($FREE_SPACE*1000))
+echo "$FREE_SPACE"

@@ -1,0 +1,41 @@
+cat >> /root/cam/ya.ru << EOF
+#!/bin/bash
+myuser="ilianorma@yandex.ru"
+mypass="m66bexy8"
+server=https://webdav.yandex.ru
+folder=/mnt/ya
+command=${1}
+param=${2}
+
+mkdir $folder
+
+(sleep 7
+echo "$myuser"
+sleep 7
+echo "$mypass"
+sleep 7
+echo "yes"
+) | mount -t davfs $server $folder
+
+DiskSize=$(df -a | grep $server | awk '{print $2}')
+if [ ! -z $DiskSize ] ; then
+echo $DiskSize
+echo $command
+echo $param
+case "$command" in
+"cp" ) cp -v $param $folder
+;;
+"rm") rm -rv $folder/$param
+;;
+"mkdir") mkdir -v $folder/$param
+;;
+*) echo "command not set"
+;;
+esac
+sync
+umount $folder
+rm -vrf $folder
+else
+echo "Can't to mount $server"
+exit 0
+fi
