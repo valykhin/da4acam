@@ -132,7 +132,8 @@ input[type*='submit']:hover {
 }
 
 .box {
-	margin: 0 0 50px 0;
+	text-align: center;
+	margin: auto;
 }
 
 .field {
@@ -155,7 +156,7 @@ input[type*='submit']:hover {
 #content {
 	padding: 0;
 	width: 90%px;
-	margin: 0 0 0 0px;
+	margin: auto;
 }
 
 #footer {
@@ -195,7 +196,6 @@ input[type*='submit']:hover {
 #menu {
 	line-height: 167px;
 	position: absolute;
-	right: 40px;
 	top: 100px;
 	height: 57px;
 	font-family: "Open Sans", sans-serif;
@@ -322,7 +322,7 @@ input[type*='submit']:hover {
 	width: 978px;
 	position: relative;
 	background: #FFF;
-	margin: 0 auto 0 auto;
+	margin: auto;
 	box-shadow: 0px 0px 150px 0px rgba(0,0,0,0.15);
 	border: solid 1px #82A7AD;
 	border-top: 0;
